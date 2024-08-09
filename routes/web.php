@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\EmployeeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,7 +25,7 @@ require __DIR__.'/auth.php';
 Route::get('/admin/logout',[AdminController::class,'AdminDestroy'])->name('admin.logout');
 Route::get('/logout',[AdminController::class,'AdminLogoutPage'])->name('admin.logout.page');
 
-//////// admin route /////////
+//------------- admin middleware ------------------
 Route::middleware(['auth'])->group(function(){
 // admin profile
 Route::get('/admin/profile',[AdminController::class,'AdminProfile'])->name('admin.profile');
@@ -36,6 +37,19 @@ Route::post('/admin/profile/store',[AdminController::class,'AdminProfileStore'])
 Route::get('/change/password',[AdminController::class,'AdminChangePassword'])->name('change.password');
 Route::post('/update/password',[AdminController::class,'AdminUpdatePassword'])->name('update.password');
 
+// Employee
+Route::controller(EmployeeController::class)->group(function(){
+    Route::get('/all/employee','AllEmployee')->name('all.employee');
+    Route::get('/add/employee','AddEmployee')->name('add.employee');
+    Route::post('/store/employee','StoreEmployee')->name('employee.store');
+    Route::get('/edit/employee/{id}','EditEmployee')->name('edit.employee');
+    Route::post('/update/employee','UpdateEmployee')->name('update.employee');
+    Route::get('/delete/employee/{id}','DeleteEmployee')->name('delete.employee');
+
 });
 
+
+
+});
+//------------- end  admin middleware ------------------
 
