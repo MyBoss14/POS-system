@@ -18,12 +18,12 @@
                                 <div class="page-title-box">
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Employee</a></li>
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Customer</a></li>
 
-                                            <li class="breadcrumb-item active">Add Employee</li>
+                                            <li class="breadcrumb-item active">Add Customer</li>
                                         </ol>
                                     </div>
-                                    <h4 class="page-title">Employee</h4>
+                                    <h4 class="page-title">Customer</h4>
                                 </div>
                             </div>
                         </div>
@@ -37,14 +37,18 @@
                                     <div class="card-body">
 
                                         <div class="tab-pane" id="settings">
-                                            <form method="POST" action="{{route('employee.store')}}"  enctype="multipart/form-data">
+                                            <form method="POST" action="{{route('update.customer')}}"  enctype="multipart/form-data">
                                                 @csrf
-                                                <h5 class="mb-4 text-uppercase"><i class="mdi mdi-account-circle me-1"></i> Employee Info</h5>
+
+                                                <input type="hidden" name="id" value="{{$customer->id}}">
+                                                <h5 class="mb-4 text-uppercase"><i class="mdi mdi-account-circle me-1"></i> Customer Info</h5>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="firstname" class="form-label">Employee Name <code>*</code></label>
-                                                            <input name="name" type="text" class="form-control
+                                                            <label for="firstname" class="form-label">Customer Name <code>*</code></label>
+                                                            <input
+                                                            value="{{$customer->name}}"
+                                                            name="name" type="text" class="form-control
                                                             @error('name') is-invalid @enderror">
 
                                                             @error('name') <span> {{$message}}</span> @enderror
@@ -53,8 +57,10 @@
 
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="firstname" class="form-label">Employee Email <code>*</code></label>
-                                                            <input name="email" type="email" class="form-control
+                                                            <label for="firstname" class="form-label">Customer Email <code>*</code></label>
+                                                            <input
+                                                            value="{{$customer->email}}"
+                                                            name="email" type="email" class="form-control
                                                             @error('email') is-invalid @enderror">
 
                                                             @error('email') <span> {{$message}}</span> @enderror
@@ -63,8 +69,10 @@
 
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="firstname" class="form-label">Employee Phone <code>*</code></label>
-                                                            <input name="phone" type="tel" class="form-control
+                                                            <label for="firstname" class="form-label">Customer Phone <code>*</code></label>
+                                                            <input
+                                                            value="{{$customer->phone}}"
+                                                            name="phone" type="tel" class="form-control
                                                             @error('phone') is-invalid @enderror">
 
                                                             @error('phone') <span> {{$message}}</span> @enderror
@@ -73,8 +81,10 @@
 
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="firstname" class="form-label">Employee Address <code>*</code></label>
-                                                            <input name="address" type="text" class="form-control
+                                                            <label for="firstname" class="form-label">Customer Address <code>*</code></label>
+                                                            <input
+                                                            value="{{$customer->address}}"
+                                                            name="address" type="text" class="form-control
                                                             @error('address') is-invalid @enderror">
 
                                                             @error('address') <span> {{$message}}</span> @enderror
@@ -83,28 +93,70 @@
 
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="firstname" class="form-label">Employee Salary ₱ <code>*</code></label>
-                                                            <input name="salary" type="number" class="form-control
-                                                            @error('salary') is-invalid @enderror">
+                                                            <label for="firstname" class="form-label">Customer Shop Name </label>
+                                                            <input
+                                                            value="{{$customer->shop_name}}"
+                                                            name="shop_name" type="text" class="form-control
+                                                            @error('shop_name') is-invalid @enderror">
 
-                                                            @error('salary') <span> {{$message}}</span> @enderror
+                                                            @error('shop_name') <span> {{$message}}</span> @enderror
                                                         </div>
                                                     </div>
 
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="firstname" class="form-label">Employee Vacation </label>
-                                                            <input name="vacation" type="text" class="form-control
-                                                            @error('vacation') is-invalid @enderror">
+                                                            <label for="firstname" class="form-label">Customer Account Holder </label>
+                                                            <input
+                                                            value="{{$customer->account_holder}}"
+                                                             name="account_holder" type="text" class="form-control
+                                                            @error('account_holder') is-invalid @enderror">
 
-                                                            @error('vacation') <span> {{$message}}</span> @enderror
+                                                            @error('account_holder') <span> {{$message}}</span> @enderror
                                                         </div>
                                                     </div>
 
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="firstname" class="form-label">Employee City </label>
-                                                            <input name="city" type="text" class="form-control
+                                                            <label for="firstname" class="form-label">Customer Account Number </label>
+                                                            <input
+                                                            value="{{$customer->account_number}}"
+                                                             name="account_number" type="number" class="form-control
+                                                            @error('account_number') is-invalid @enderror">
+
+                                                            @error('account_number') <span> {{$message}}</span> @enderror
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="firstname" class="form-label">Customer Bank Name </label>
+                                                            <input
+                                                            value="{{$customer->bank_name}}"
+                                                             name="bank_name" type="text" class="form-control
+                                                            @error('bank_name') is-invalid @enderror">
+
+                                                            @error('bank_name') <span> {{$message}}</span> @enderror
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="firstname" class="form-label">Customer Bank Branch </label>
+                                                            <input
+                                                            value="{{$customer->bank_branch}}"
+                                                             name="bank_branch" type="text" class="form-control
+                                                            @error('bank_branch') is-invalid @enderror">
+
+                                                            @error('bank_branch') <span> {{$message}}</span> @enderror
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="firstname" class="form-label">Customer City </label>
+                                                            <input
+                                                            value="{{$customer->city}}"
+                                                             name="city" type="text" class="form-control
                                                             @error('city') is-invalid @enderror">
 
                                                             @error('city') <span> {{$message}}</span> @enderror
@@ -113,7 +165,7 @@
 
                                                     <div class="col-md-12">
                                                         <div class="mb-3">
-                                                            <label for="example-fileinput" class="form-label">Employee Image</label>
+                                                            <label for="example-fileinput" class="form-label">Customer Image</label>
                                                             <input
                                                              name="image" type="file" id="image" class="form-control">
                                                         </div>
@@ -122,7 +174,7 @@
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label for="example-fileinput" class="form-label">Image Display</label>
-                                                            <img id="showImage" src="{{ url('upload/no_image.jpg')}}" class="rounded-circle avatar-lg img-thumbnail"
+                                                            <img id="showImage" src="{{ url($customer->image)}}" class="rounded-circle avatar-lg img-thumbnail"
                                                             alt="profile-image">
                                                         </div>
                                                     </div>
