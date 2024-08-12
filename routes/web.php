@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\SupplierController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
@@ -57,6 +58,18 @@ Route::controller(CustomerController::class)->group(function(){
     Route::get('/edit/customer/{id}','EditCustomer')->name('edit.customer');
     Route::post('/update/customer','UpdateCustomer')->name('update.customer');
     Route::get('/delete/customer/{id}','DeleteCustomer')->name('delete.customer');
+
+});
+
+// Supplier
+Route::controller(SupplierController::class)->group(function(){
+    Route::get('/all/supplier','AllSupplier')->name('all.supplier');
+    Route::get('/add/supplier','AddSupplier')->name('add.supplier');
+    Route::post('/store/supplier','StoreSupplier')->name('supplier.store');
+    Route::get('/edit/supplier/{id}','EditSupplier')->name('edit.supplier');
+    Route::post('/update/supplier','UpdateSupplier')->name('update.supplier');
+    Route::get('/delete/supplier/{id}','DeleteSupplier')->name('delete.supplier');
+    Route::get('/details/supplier/{id}','DetailsSupplier')->name('details.supplier');
 
 });
 

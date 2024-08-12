@@ -58,9 +58,9 @@
                                                     <td>{{$item->phone}}</td>
                                                     <td>{{$item->shop_name}}</td>
                                                     <td>
-                                                        <a href="{{route('edit.customer',$item->id)}}" class="btn btn-soft-info rounded-pill waves-effect waves-light" fdprocessedid="io1mu">EDIT</a>
+                                                        <a href="{{route('edit.customer',$item->id)}}" class="btn btn-soft-info rounded-pill waves-effect waves-light" fdprocessedid="io1mu"  title="EDIT"><i class="fa-solid fa-pen-to-square"></i></a>
 
-                                                        <a href="{{route('delete.customer',$item->id)}}" class="btn btn-soft-danger rounded-pill waves-effect waves-light"fdprocessedid="5krrt" id="delete">DEL</a>
+                                                        <a href="{{route('delete.customer',$item->id)}}" class="btn btn-soft-danger rounded-pill waves-effect waves-light"fdprocessedid="5krrt"  title="DELETE" id="delete"><i class="fa-solid fa-delete-left"></i></a>
                                                     </td>
 
                                                 </tr>

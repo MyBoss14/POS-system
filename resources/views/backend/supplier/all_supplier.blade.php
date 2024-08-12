@@ -18,10 +18,10 @@
                                     <div class="page-title-right ">
                                         <h4>
 
-                                            <a href="{{route('add.employee')}}" class="btn btn-outline-primary rounded-pill waves-effect waves-light"fdprocessedid="dsw5vh"> <b>ADD EMPLOYEE</b> </a>
+                                            <a href="{{route('add.supplier')}}" class="btn btn-outline-primary rounded-pill waves-effect waves-light"fdprocessedid="dsw5vh"> <b>ADD SUPPLIER</b> </a>
                                         </h4>
                                     </div>
-                                    <h4 class="page-title">All Employee</h4>
+                                    <h4 class="page-title">All Supplier</h4>
                                 </div>
                             </div>
                         </div>
@@ -41,7 +41,8 @@
                                                     <th>Name</th>
                                                     <th>Email</th>
                                                     <th>Phone</th>
-                                                    <th>salary</th>
+                                                    <th>ShopName</th>
+                                                    <th>Type</th>
                                                     <th>Action</th>
 
                                                 </tr>
@@ -49,18 +50,22 @@
 
 
                                             <tbody>
-                                                @foreach ($employee as $key=> $item)
+                                                @foreach ($supplier as $key=> $item)
                                                 <tr>
                                                     <td>{{$key+1}}</td>
                                                     <td><img src="{{asset($item->image)}}" alt="" style="width: 50px; height:40px;"></td>
                                                     <td>{{$item->name}}</td>
                                                     <td>{{$item->email}}</td>
                                                     <td>{{$item->phone}}</td>
-                                                    <td>₱ {{ number_format($item->salary, 2) }}</td>
-                                                    <td>
-                                                        <a href="{{route('edit.employee',$item->id)}}" class="btn btn-soft-info rounded-pill waves-effect waves-light" fdprocessedid="io1mu" title="EDIT"><i class="fa-solid fa-pen-to-square" ></i></a>
+                                                    <td>{{$item->shop_name}}</td>
+                                                    <td>{{$item->type}}</td>
 
-                                                        <a href="{{route('delete.employee',$item->id)}}" class="btn btn-soft-danger rounded-pill waves-effect waves-light"fdprocessedid="5krrt" title="DELETE" id="delete"><i class="fa-solid fa-delete-left"></i></a>
+                                                    <td>
+                                                        <a href="{{route('edit.supplier',$item->id)}}" class="btn btn-soft-info rounded-pill waves-effect waves-light" fdprocessedid="io1mu" title="EDIT"><i class="fa-solid fa-pen-to-square" ></i></a>
+
+                                                        <a href="{{route('delete.supplier',$item->id)}}" class="btn btn-soft-danger rounded-pill waves-effect waves-light"fdprocessedid="5krrt" id="delete" title="DELETE"><i class="fa-solid fa-delete-left" ></i></a>
+
+                                                        <a href="{{route('details.supplier',$item->id)}}" class="btn btn-soft-success rounded-pill waves-effect waves-light"fdprocessedid="5krrt" title="DETAILS"><i class="fa-solid fa-circle-info" ></i></a>
                                                     </td>
 
                                                 </tr>
