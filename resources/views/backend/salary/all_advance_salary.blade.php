@@ -39,8 +39,8 @@
                                                     <th>S1</th>
                                                     <th>Image</th>
                                                     <th>Name</th>
-                                                    <th>Email</th>
-                                                    <th>Phone</th>
+                                                    <th>date</th>
+                                                    <th>Advanced</th>
                                                     <th>salary</th>
                                                     <th>Action</th>
 
