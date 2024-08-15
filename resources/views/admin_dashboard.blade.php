@@ -13,8 +13,16 @@
         <link rel="shortcut icon" href="{{asset('backend/assets/images/favicon.ico')}}">
 
         <!-- Plugins css -->
+
+
+
+
         <link href="{{asset('backend/assets/libs/flatpickr/flatpickr.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('backend/assets/libs/selectize/css/selectize.bootstrap3.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('backend/assets/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('backend/assets/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css')}}" rel="stylesheet" type="text/css" />
+
+
 
         <!-- Bootstrap css -->
         <link href="{{asset('backend/assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
@@ -39,6 +47,9 @@
 
         {{-- font awesome --}}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
 
     </head>
 
@@ -536,5 +547,13 @@
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
         <script src="{{ asset('backend/assets/js/code.js') }}"></script>
         {{-- end sweet alert --}}
+
+        {{-- date picker --}}
+        <!-- Plugins js-->
+        <script src="{{asset('backend/assets/libs/flatpickr/flatpickr.min.js')}}"></script>
+        <script src="{{asset('backend/assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}"></script>
+        <!-- Init js-->
+        <script src="{{asset('backend/assets/js/pages/form-pickers.init.js')}}"></script>
+        {{-- end date picker --}}
     </body>
 </html>

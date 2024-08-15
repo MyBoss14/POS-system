@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\Backend\SupplierController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Backend\SalaryController;
 use App\Http\Controllers\Backend\CustomerController;
 use App\Http\Controllers\Backend\EmployeeController;
+use App\Http\Controllers\Backend\SupplierController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -70,6 +71,18 @@ Route::controller(SupplierController::class)->group(function(){
     Route::post('/update/supplier','UpdateSupplier')->name('update.supplier');
     Route::get('/delete/supplier/{id}','DeleteSupplier')->name('delete.supplier');
     Route::get('/details/supplier/{id}','DetailsSupplier')->name('details.supplier');
+
+});
+
+// Advance Salary
+Route::controller(SalaryController::class)->group(function(){
+    Route::get('/all/advance/salary','AllAdvanceSalary')->name('all.advance.salary');
+    Route::get('/add/advance/salary','AddAdvanceSalary')->name('add.advance.salary');
+    Route::post('/store/advance/salary','StoreAdvanceSalary')->name('advance.salary.store');
+    Route::get('/edit/advance/salary/{id}','EditAdvanceSalary')->name('edit.advance.salary');
+    Route::post('/update/advance/salary','UpdateAdvanceSalary')->name('update.advance.salary');
+    Route::get('/delete/advance/salary/{id}','DeleteAdvanceSalary')->name('delete.advance.salary');
+    Route::get('/details/advance/salary/{id}','DetailsAdvanceSalary')->name('details.advance.salary');
 
 });
 
